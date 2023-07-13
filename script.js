@@ -1,6 +1,4 @@
-console.log("---JS---");
-
-
+// GLOBALS
 const options = ["rock", "paper", "scissors"];
 
 const stronger = {
@@ -14,6 +12,8 @@ let score = {
     computer: 0
 }
 
+// GET CHOICE FUNCTIONS
+
 function getPlayerChoice() {
     let playerChoice = prompt("Please enter your pick").toLowerCase().trim();
     while (!options.includes(playerChoice)) {
@@ -26,6 +26,8 @@ function getComputerChoice() {
     let randNum = Math.floor(Math.random() * 3);
     return options[randNum];
 }
+
+// GAME FUNCTIONS
 
 function playRound(playerSelection, computerSelection) {
     let res
@@ -57,5 +59,7 @@ function game() {
         console.log("Tie between Player and Computer.");
     }
 }
+
+// START GAME
 
 game();
