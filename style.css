@@ -1,0 +1,98 @@
+:root {
+    --light: #FAF2DF;
+    --dark: #011053;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--dark);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* BODY */
+
+body {
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+    height: 100vh;
+}
+
+/* TITLE */
+
+#title {
+    font-size: 6em;
+}
+
+/* DESCRIPTION */
+#description-div {
+    padding: 20px 0 30px 0;
+}
+#description-div p {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* OPTIONS */
+#options-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+}
+
+/* OPTION */
+
+.option-image {
+    width: 250px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option-image-rock {
+    background-image: url('./assets/icons8-rock-96.png')
+}
+#option-image-paper {
+    background-image: url('./assets/icons8-paper-96.png')
+}
+#option-image-scissors {
+    background-image: url('./assets/icons8-scissors-96.png')
+}
+
+.option-name {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* SCORES */
+
+#score-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 80px;
+}
+
+/* SCORE */
+.score-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+    height: 80px;
+}
+
+/* STYLE */
+
+.thick-border {
+    border: 3px solid var(--dark);
+}
