@@ -44,6 +44,14 @@ body {
 
 /* OPTION */
 
+.option-card {
+    transition:transform 0.1s ease-in;
+}
+
+.option-card:hover {
+    transform: scale(1.03);
+}
+
 .option-image {
     width: 250px;
     height: 400px;
