@@ -1,3 +1,8 @@
+
+// --------------------------------------------
+//                  GAME LOGIC
+// --------------------------------------------
+
 // GLOBALS
 const options = ["rock", "paper", "scissors"];
 
@@ -12,14 +17,12 @@ let score = {
     computer: 0
 }
 
+let gameFinished = false;
+
 // GET CHOICE FUNCTIONS
 
-function getPlayerSelection() {
-    let playerSelection = prompt("Please enter your pick").toLowerCase().trim();
-    while (!options.includes(playerSelection)) {
-        playerSelection = prompt("Please enter a valid pick").toLowerCase().trim();
-    }
-    return playerSelection;
+function getPlayerSelection(event) {
+    return event.target.getAttribute('data-mytype');
 }
 
 function getComputerSelection() {
@@ -29,8 +32,21 @@ function getComputerSelection() {
 
 // GAME FUNCTIONS
 
-function playRound(playerSelection, computerSelection) {
-    let res
+function checkWin() {
+    if (score.player == 3 || score.computer == 3) {
+        console.log("Game Finished");
+        gameFinished = true;
+    }
+}
+
+
+function playRound(event) {
+    if (gameFinished == true) {
+        return;
+    }
+    let res;
+    let playerSelection = getPlayerSelection(event);
+    let computerSelection = getComputerSelection();
     if (playerSelection === computerSelection) {
         res = "Tie";
     }
@@ -41,25 +57,23 @@ function playRound(playerSelection, computerSelection) {
         res ="You Lose! "+ computerSelection +" beats "+ playerSelection ;
         score.computer++;
     }
+    console.log(res);
+    checkWin();
     return res;
 }
 
-function startGame() {
-    for(let i=0; i< 5; i++) {
-        console.log(playRound(getPlayerSelection(), getComputerSelection()));
-    }
-    console.log("Player Score: " + score.player);
-    console.log("Computer Score: " + score.computer);
 
-    if (score.player > score.computer) {
-        console.log("Player is the winner!");
-    } else if (score.player < score.computer) {
-        console.log("Computer is the winner!");
-    } else {
-        console.log("Tie between Player and Computer.");
-    }
-}
+// --------------------------------------------
+//                      DOM
+// --------------------------------------------
 
-// START GAME
+const optionCards = document.querySelectorAll('.option-card');
+let optionCardsArr = Array.from(optionCards);
 
-// startGame();
+
+// ATTACH EVENT
+
+// Card Events
+optionCardsArr.forEach( (card) => {
+    card.addEventListener("click", (event) => playRound(event) );
+});

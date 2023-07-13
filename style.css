@@ -49,6 +49,7 @@ body {
     height: 400px;
     background-repeat: no-repeat;
     background-position: center;
+    pointer-events: none;
 }
 
 #option-image-rock {
@@ -64,6 +65,7 @@ body {
 .option-name {
     text-align: center;
     padding: 10px 0;
+    pointer-events: none;
 }
 
 /* RESULT */
