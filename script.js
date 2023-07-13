@@ -14,15 +14,15 @@ let score = {
 
 // GET CHOICE FUNCTIONS
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Please enter your pick").toLowerCase().trim();
-    while (!options.includes(playerChoice)) {
-        playerChoice = prompt("Please enter a valid pick").toLowerCase().trim();
+function getPlayerSelection() {
+    let playerSelection = prompt("Please enter your pick").toLowerCase().trim();
+    while (!options.includes(playerSelection)) {
+        playerSelection = prompt("Please enter a valid pick").toLowerCase().trim();
     }
-    return playerChoice;
+    return playerSelection;
 }
 
-function getComputerChoice() {
+function getComputerSelection() {
     let randNum = Math.floor(Math.random() * 3);
     return options[randNum];
 }
@@ -44,9 +44,9 @@ function playRound(playerSelection, computerSelection) {
     return res;
 }
 
-function game() {
+function startGame() {
     for(let i=0; i< 5; i++) {
-        console.log(playRound(getPlayerChoice(), getComputerChoice()));
+        console.log(playRound(getPlayerSelection(), getComputerSelection()));
     }
     console.log("Player Score: " + score.player);
     console.log("Computer Score: " + score.computer);
@@ -62,4 +62,4 @@ function game() {
 
 // START GAME
 
-game();
+startGame();
