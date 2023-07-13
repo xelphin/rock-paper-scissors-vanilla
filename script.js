@@ -1,10 +1,7 @@
 console.log("---JS---");
 
-const options = {
-    "rock": 0,
-    "paper": 1,
-    "scissors": 2
-}
+
+const options = ["rock", "paper", "scissors"];
 
 const stronger = {
     "rock": "scissors",
@@ -18,20 +15,19 @@ let score = {
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Please enter your pick");
-    while (options[playerChoice] === undefined) {
-        playerChoice = prompt("Please enter a valid pick");
+    let playerChoice = prompt("Please enter your pick").toLowerCase().trim();
+    while (!options.includes(playerChoice)) {
+        playerChoice = prompt("Please enter a valid pick").toLowerCase().trim();
     }
     return playerChoice;
 }
 
 function getComputerChoice() {
     let randNum = Math.floor(Math.random() * 3);
-    return Object.keys(options)[randNum];
+    return options[randNum];
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase().trim();
     let res
     if (playerSelection === computerSelection) {
         res = "Tie";
