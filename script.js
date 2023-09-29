@@ -16,6 +16,8 @@ let gameFinished = false;
 
 // DOM
 
+// Title
+let title = document.querySelector('#title');
 // Cards
 const optionCards = document.querySelectorAll('.option-card');
 let optionCardsArr = Array.from(optionCards);
@@ -57,8 +59,10 @@ function printWin() {
     let res;
     if (score.player > score.computer) {
         res = ".Game Over. Player Won!";
+        title.textContent = "PLAYER WON!";
     } else {
         res = ".Game Over. Computer Won!";
+        title.textContent = "COMPUTER WON!";
     }
     return res;
 }
