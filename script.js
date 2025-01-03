@@ -1,7 +1,7 @@
 // GLOBALS
-const options = ["rock", "paper", "scissors"];
+const OPTIONS = ["rock", "paper", "scissors"];
 
-const stronger = {
+const WEAKER_THAN = {
     "rock": "scissors",
     "paper": "rock",
     "scissors": "paper"
@@ -40,8 +40,8 @@ function getPlayerSelection(event) {
 }
 
 function getComputerSelection() {
-    let randNum = Math.floor(Math.random() * 3);
-    return options[randNum];
+    let randNum = Math.floor(Math.random() * OPTIONS.length);
+    return OPTIONS[randNum];
 }
 
 // GAME FUNCTIONS
@@ -78,7 +78,7 @@ function playRound(event) {
     if (playerSelection === computerSelection) {
         res = "Tie";
     }
-    else if (stronger[playerSelection] === computerSelection) {
+    else if (WEAKER_THAN[playerSelection] === computerSelection) {
         res = "You Win! "+ playerSelection +" beats "+ computerSelection;
         score.player++;
         scorePlayer.textContent = score.player;
